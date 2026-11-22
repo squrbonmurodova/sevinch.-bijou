@@ -1,4 +1,15 @@
+<div style="text-align:center;padding:20px;">
+  <button onclick="showCart()">
+    🛍️ Savatcha (<span id="cartCount">0</span>)
+  </button>
+</div>
 
+<div id="cartBox" style="display:none;text-align:center;padding:20px;">
+  <h2>Sizning savatchangiz</h2>
+  <div id="cartItems"></div>
+  <h3 id="total">Jami: 0 so‘m</h3>
+  <button onclick="checkout()">Buyurtma berish</button>
+</div>
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -123,4 +134,50 @@
     <p>Bizni tanlaganingiz uchun rahmat!</p>
   </footer>
 </body>
+  
+<script>
+let cart = [];
+
+function addToCart(name, price) {
+  cart.push({name, price});
+  document.getElementById("cartCount").textContent = cart.length;
+  renderCart();
+  alert(name + " savatchaga qo‘shildi!");
+}
+
+function showCart() {
+  const box = document.getElementById("cartBox");
+  box.style.display =
+    box.style.display === "none" ? "block" : "none";
+  renderCart();
+}
+
+function renderCart() {
+  document.getElementById("cartItems").innerHTML =
+    cart.map((item, i) =>
+      `<p>${item.name} — ${item.price.toLocaleString()} so‘m
+      <button onclick="removeItem(${i})">O‘chirish</button></p>`
+    ).join("");
+
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  document.getElementById("total").textContent =
+    "Jami: " + total.toLocaleString() + " so‘m";
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  document.getElementById("cartCount").textContent = cart.length;
+  renderCart();
+}
+
+function checkout() {
+  if (cart.length === 0) {
+    alert("Savatchangiz bo‘sh!");
+    return;
+  }
+  alert("Buyurtmangiz tayyor! Keyingi bosqichda Telegramga ulaymiz.");
+}
+</script>
+</body>
+
 </html>
