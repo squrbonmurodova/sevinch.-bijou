@@ -170,11 +170,50 @@ function removeItem(index) {
   renderCart();
 }
 
+
 function checkout() {
   if (cart.length === 0) {
     alert("Savatchangiz bo‘sh!");
     return;
   }
+
+  const name = prompt("Ismingizni kiriting:");
+  if (!name) return;
+
+  const phone = prompt("Telefon raqamingizni kiriting:");
+  if (!phone) return;
+
+  const products = cart.map(item =>
+    item.name + " - " + item.price.toLocaleString() + " so‘m"
+  ).join("\n");
+
+  const total = cart.reduce(
+    (sum, item) => sum + item.price, 0
+  );
+
+  const message =
+    "SEVINCH BIJOU BUYURTMASI\n" +
+    "Ism: " + name + "\n" +
+    "Telefon: " + phone + "\n" +
+    products + "\n" +
+    "Jami: " + total.toLocaleString() + " so‘m";
+
+  window.open(
+    "https://www.instagram.com/farhod0vnaa_/",
+    "_blank"
+  );
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(message)
+      .then(() => alert(
+        "Buyurtma nusxalandi! Instagram Direct'ga kirib, xabarni yuboring."
+      ))
+      .catch(() => prompt("Buyurtma matnini nusxalang:", message));
+  } else {
+    prompt("Buyurtma matnini nusxalang:", message);
+  }
+}
+
   alert("Buyurtmangiz tayyor! Keyingi bosqichda Telegramga ulaymiz.");
 }
 </script>
