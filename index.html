@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEVINCH BIJOU | Jewelry Store</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, serif;
+      background: #f8f3eb;
+      color: #59452f;
+    }
+    header {
+      text-align: center;
+      padding: 30px 15px;
+      background: #eee2d0;
+    }
+    header h1 {
+      color: #a77b42;
+      letter-spacing: 5px;
+      font-size: 32px;
+    }
+    nav {
+      padding: 18px;
+      text-align: center;
+      background: #fffaf3;
+    }
+    nav a {
+      color: #725735;
+      text-decoration: none;
+      margin: 12px;
+    }
+    .hero {
+      text-align: center;
+      padding: 90px 20px;
+      background: linear-gradient(120deg,#e9d9c2,#f9f2e8);
+    }
+    .hero h2 { font-size: 38px; margin-bottom: 15px; }
+    .hero p { margin-bottom: 25px; }
+    button {
+      background: #a77b42;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .products { padding: 45px 20px; text-align: center; }
+    .products h2 { margin-bottom: 25px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .item {
+      background: white;
+      padding: 18px;
+      border-radius: 10px;
+    }
+    .item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .item h3 { margin: 12px 0; }
+    .item p { margin-bottom: 12px; }
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #eee2d0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SEVINCH BIJOU</h1>
+    <p>JEWELRY • BEAUTY • ELEGANCE</p>
+  </header>
+
+  <nav>
+    <a href="#">Bosh sahifa</a>
+    <a href="#products">Mahsulotlar</a>
+    <a href="#contact">Aloqa</a>
+  </nav>
+
+  <section class="hero">
+    <h2>Go‘zalligingizga nafis jilo!</h2>
+    <p>Har bir ayol uchun o‘ziga xos nafislik.</p>
+    <a href="#products"><button>Xarid qilish</button></a>
+  </section>
+
+  <section class="products" id="products">
+    <h2>Bizning kolleksiyamiz</h2>
+    <div class="grid">
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500" alt="Zirak">
+        <h3>Elegant zirak</h3>
+        <p>85 000 so‘m</p>
+        <button>Sotib olish</button>
+      </div>
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500" alt="Bilaguzuk">
+        <h3>Oltin bilaguzuk</h3>
+        <p>120 000 so‘m</p>
+        <button>Sotib olish</button>
+      </div>
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500" alt="Marjon">
+        <h3>Nafis marjon</h3>
+        <p>150 000 so‘m</p>
+        <button>Sotib olish</button>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <h3>SEVINCH BIJOU</h3>
+    <p>Bizni tanlaganingiz uchun rahmat!</p>
+  </footer>
+</body>
+</html>
